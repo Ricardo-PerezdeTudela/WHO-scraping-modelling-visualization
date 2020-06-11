@@ -1,0 +1,34 @@
+In this project, the official daily reports by the Wolrd Health Organization (WHO) 
+are downloaded as pdf files and scraped for information. 
+As pdf scraping is so tricky, I needed to implement two different methods, 
+in case one of them didn't work properly. This was done making use of 
+appropriate error handling. 
+
+This project deals with the following concepts:
+
+- web scraping
+- pdf scraping
+- data cleaning
+- error handling
+- modelling
+- visualization
+
+The main website where we scraped all of the data is:
+https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports/
+
+The information we are interested in is the total/new cases/deaths for a short list of countries. 
+The file who-webscraping.ipynb performs the actual retrieving of the information and exports it to the file who.csv. 
+The second file who-modelling-visualization.ipynb reads the csv file and fits the data to simple logistic functions. 
+The figure is exported as a pdf file. 
+
+
+ISSUES:
+
+1) Some of the pdf file could not be read at all. However, missing data is not substantial. 
+
+2) The dates between 21.05 to 29.05 were not correctly read by the python code, 
+assigning always zero to the first figure of the day.
+Therefore, between the dates 01.05 and 09.05 we will have duplicated data.
+That is why  for May, only the dates between 11.05 and 19.05 plus 30.05 and 31.05 were shown.
+
+
